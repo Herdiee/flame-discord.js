@@ -1,16 +1,25 @@
 // Dependancies
 const Discord = require('discord.js');
 const ytdl = require('ytdl-core');
-
-const queue = new Map();
 const client = new Discord.Client();
 
+
+
+
+
+
+
+
+
+
+
+/*
 const InfoCmds = require("./cmd/info.js");
 const FunCmds = require("./cmd/fun.js");
 const EcoCmds = require("./cmd/eco.js");
 const SettingCmds = require("./cmd/settings.js");
 const ErrorCmds = require("./cmd/errorhandle.js");
-
+const queue = new Map();
 var fs = require('file-system');
 var levels 
 var userconf
@@ -48,7 +57,7 @@ client.on('message', msg => {
 	if (cmd[0] === clientPrefix + "rng") {
 		msg.channel.send ("TEMP: In Nums are: " + cmd[1] + cmd[2]);
         msg.channel.send (Math.floor(Math.random() * Number(parseFloat(cmd[2]))) + Number(parseFloat(cmd[1])))
-	} */
+	} 
 	if (cmd[0] === clientPrefix + "sendargs1") {
 		msg.channel.send (cmd[1]);
 	}
@@ -59,7 +68,6 @@ client.on('message', msg => {
         throw "Test Error Message";
     }
 	if (cmd[0] === clientPrefix + "settings") {
-		/* This command section is fairly large */
 		msg.channel.send(":warning: - This Command does not save settings right now");
 		if (cmd[1] == null) {
 			msg.channel.send ("Command Syntax is ``&settings <server/user> [setting]``, for a full list of settings, see <link goes here>");
@@ -261,3 +269,4 @@ client.on('message', msg => {
 });
 
 client.login('yeet');
+*/
