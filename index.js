@@ -1,8 +1,37 @@
 // Dependancies
 const Discord = require('discord.js');
+const Enmap = require("enmap");
+const fs = require("fs");
 const ytdl = require('ytdl-core');
-const client = new Discord.Client();
 
+const client = new Discord.Client();
+const config = require("./config.json");
+client.config = config;
+client.commands = new Enmap();
+client.cooldowns = new Discord.Collection();
+
+fs.readdirSync('./Commands').forEach(dirs => {
+    const commands = fs.readdirSync(`./Commands/${dirs}`).filter(files => files.endsWith('.js'));
+
+    for (const file of commands) {
+        const command = require(`./Commands/${dirs}/${file}`);
+        console.log(`Loading command ${file}`);
+        let props = require(`./Commands/${dirs}/${file}`);
+        let commandName = file.split(".")[0];
+        client.commands.set(commandName, props);
+    };
+});
+
+fs.readdir("./Events/", (err, files) => {
+	if (err) return console.error(err);
+	files.forEach(file => {
+	  const event = require(`./Events/${file}`);
+	  let eventName = file.split(".")[0];
+	  client.on(eventName, event.bind(null, client));
+	});
+  });
+
+ client.login(config.token);
 
 
 
@@ -36,7 +65,6 @@ client.on("ready", () => {
 	console.log(`Flame Discord client By Edgewurth`);
 })
 
-var clientPrefix = "&";
 
 
 function sortObject(o) {
