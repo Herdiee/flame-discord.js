@@ -33,7 +33,8 @@ fs.readdir("./Events/", (err, files) => {
 	});
   });
 
- client.login(config.token);
+// Log in using the bot token stored in the /config.json file.
+client.login(config.token);
 
 
 
