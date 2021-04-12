@@ -50,40 +50,7 @@ function sortObject(o) {
    return a;
 }
 
-client.on('message', msg => {
-  try {
-	var cmd = msg.content.split(" "); // Splits message so we can have arguments AND check if message starts with "X".
-	/* Command Currently Broken
-	if (cmd[0] === clientPrefix + "rng") {
-		msg.channel.send ("TEMP: In Nums are: " + cmd[1] + cmd[2]);
-        msg.channel.send (Math.floor(Math.random() * Number(parseFloat(cmd[2]))) + Number(parseFloat(cmd[1])))
-	} 
-	if (cmd[0] === clientPrefix + "sendargs1") {
-		msg.channel.send (cmd[1]);
-	}
-	if (cmd[0] === clientPrefix + "about") {
-        msg.channel.send (InfoCmds.about())
-    }
-	if (cmd[0] === clientPrefix + "throwerr") {
-        throw "Test Error Message";
-    }
-	if (cmd[0] === clientPrefix + "settings") {
-		msg.channel.send(":warning: - This Command does not save settings right now");
-		if (cmd[1] == null) {
-			msg.channel.send ("Command Syntax is ``&settings <server/user> [setting]``, for a full list of settings, see <link goes here>");
-		}
-		if (cmd[1] == "server") {
-				if (cmd[2] == "prefix") {
-						msg.channel.send("Set prefix to ``" + cmd[3] + "``");
-				}
-		}
-		if (cmd[1] == "user") {
-				if (cmd[2] == "dmhelp") {
-						if (typeof userconf[msg.author.id + "_dmhelp"] === "undefined") {
-							
-						}
-				}
-		}
+
     }
 	if (cmd[0] === clientPrefix + "printid") {
 		msg.channel.send (msg.id)
