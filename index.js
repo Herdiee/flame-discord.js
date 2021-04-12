@@ -115,14 +115,6 @@ function sortObject(o) {
 		}
     }
 	
-	if (cmd[0] === clientPrefix + "ping") {
-		var date = new Date();
-        var timestampbef = date.getMilliseconds();
-		msg.channel.send ("Please Wait...");
-		var date = new Date();
-		var timestampaft = date.getMilliseconds();
-		var latency = timestampaft - timestampbef;
-		msg.channel.send ("Pong! The latency is " + latency.toFixed(0) + "ms");
     }
 	if (cmd[0] === clientPrefix + "bal") {
 		if (typeof levels[msg.author.id] === "undefined") {
@@ -148,27 +140,6 @@ function sortObject(o) {
 		msg.reply("You worked at " + jobname + " and got $" + pay);
     }
 	
-	if (cmd[0] === clientPrefix + "testembed") {
-		const exampleEmbed = new Discord.MessageEmbed()
-		.setColor('#ee5615')
-		.setTitle('Some title')
-		.setURL('https://discord.js.org/')
-		.setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
-		.setDescription('Some description here')
-		.setThumbnail('https://i.imgur.com/wSTFkRM.png')
-		.addFields(
-			{ name: 'Regular field title', value: 'Some value here' },
-			{ name: '\u200B', value: '\u200B' },
-			{ name: 'Inline field title', value: 'Some value here', inline: true },
-			{ name: 'Inline field title', value: 'Some value here', inline: true },
-		)
-		.addField('Inline field title', 'Some value here', true)
-		.setImage('https://i.imgur.com/wSTFkRM.png')
-		.setTimestamp()
-		.setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
-	
-	msg.channel.send(exampleEmbed);
-    }
 	
 	if (typeof levels[msg.author.id] === "undefined") {
 		levels[msg.author.id] = 0;
