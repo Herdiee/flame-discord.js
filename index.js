@@ -1,13 +1,15 @@
+// Dependancies
 const Discord = require('discord.js');
 const ytdl = require('ytdl-core');
+
+const queue = new Map();
 const client = new Discord.Client();
+
 const InfoCmds = require("./cmd/info.js");
 const FunCmds = require("./cmd/fun.js");
 const EcoCmds = require("./cmd/eco.js");
 const SettingCmds = require("./cmd/settings.js");
 const ErrorCmds = require("./cmd/errorhandle.js");
-
-const queue = new Map();
 
 var fs = require('file-system');
 var levels 
