@@ -10,6 +10,7 @@ client.config = config;
 client.commands = new Enmap();
 client.cooldowns = new Discord.Collection();
 
+// Command Handler
 fs.readdirSync('./Commands').forEach(dirs => {
     const commands = fs.readdirSync(`./Commands/${dirs}`).filter(files => files.endsWith('.js'));
 
@@ -22,6 +23,7 @@ fs.readdirSync('./Commands').forEach(dirs => {
     };
 });
 
+// Event Handler
 fs.readdir("./Events/", (err, files) => {
 	if (err) return console.error(err);
 	files.forEach(file => {
