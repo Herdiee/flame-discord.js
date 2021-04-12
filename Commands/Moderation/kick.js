@@ -53,10 +53,8 @@ module.exports = {
             message.channel.send(sembed2);
             }
 
+            // Fetch the moderation logging channel from database else do nothing
             let channel = db.fetch(`modlog_${message.guild.id}`)
-
-
-
             if (!channel) return;
 
             // Logging embed
