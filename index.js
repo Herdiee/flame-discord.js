@@ -51,7 +51,6 @@ const EcoCmds = require("./cmd/eco.js");
 const SettingCmds = require("./cmd/settings.js");
 const ErrorCmds = require("./cmd/errorhandle.js");
 const queue = new Map();
-var fs = require('file-system');
 var levels 
 var userconf
 fs.readFile('./configs/levels.json', 'utf8', function(err, contents) {
@@ -62,10 +61,6 @@ fs.readFile('./configs/userconf.json', 'utf8', function(err, contents) {
 });
 var contents = null
 
-client.on("ready", () => {
-    console.log(`Logged in as ${client.user.tag}!`); // Indicates you were logged in.
-	console.log(`Flame Discord client By Edgewurth`);
-})
 
 
 
@@ -265,5 +260,4 @@ function sortObject(o) {
 	}
 });
 
-client.login('yeet');
 */
