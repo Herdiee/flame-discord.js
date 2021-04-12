@@ -77,21 +77,7 @@ function sortObject(o) {
 }
 
 
-    }
-	if (cmd[0] === clientPrefix + "printid") {
-		msg.channel.send (msg.id)
-	}
-	if (cmd[0] === clientPrefix + "help") {
-		if (typeof userconf[msg.author.id + "_dmhelp"] === "undefined") {
-		userconf[msg.author.id + "_dmhelp"] = "true";
-		};
-		if (userconf[msg.author.id + "_dmhelp"] === "true") {
-			msg.channel.send ("Please check your inbox to see the help list. If your private messages are closed, then please type ``&settings``, and press the User/Send Help to Inbox buttons.");
-			msg.author.send(InfoCmds.help(cmd[1]))
-		} else {
-			msg.reply(InfoCmds.help(cmd[1]))
-		};
-		
+    
     }
 	if (cmd[0] === clientPrefix + "sendname") {
 		msg.channel.send (msg.guild.members.get(msg.author.id).user.username);
