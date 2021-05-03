@@ -42,3 +42,4 @@ module.exports = {
         let a = await db.add(`money_${message.guild.id}_${user.id}`, amount)
     
 }
+}
