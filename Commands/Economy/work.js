@@ -31,15 +31,14 @@ module.exports = {
     'a Museum.',
     ];
 
-  let jobworked = Math.floor((Math.random() * jobs.length));
-  let amount = 1
+        let jobworked = Math.floor(Math.random() * jobs.length);
+        let amount = Math.floor(Math.random() * 100);
 
-  let embed = new MessageEmbed()
-  .setColor("#FFFFFF")
-  .setDescription(`You worked as a ${jobs[jobworked]{ and earned ${amount}`)
-  message.channel.send(embed) 
-  await client.db.add(`money_${message.guild.id}_${user.id}.pocket`, amount)
+        let embed = new MessageEmbed()
+        .setColor("#FFFFFF")
+        .setDescription(`You worked as a ${jobs[jobworked]{ and earned ${amount}`)
+        message.reply(embed) 
+
+        let a = await db.add(`money_${message.guild.id}_${user.id}`, amount)
     
-    
-    
-    
+}
