@@ -74,32 +74,6 @@ function sortObject(o) {
    }
    a.sort(function(a,b){ return a[0]>b[0]?1:-1; })
    return a;
-}
-
-
-    
-    }
-	if (cmd[0] === clientPrefix + "sendname") {
-		msg.channel.send (msg.guild.members.get(msg.author.id).user.username);
-    }
-	if (cmd[0] === clientPrefix + "8ball") {
-        msg.channel.send (FunCmds.eightball())
-    }
-	
-	if (cmd[0] === clientPrefix + "dbg") {
-		if (msg.author.id === "354512960250576896") {
-			if (cmd[1] === "shutdown") {
-				msg.channel.send("DEBUG - Shutting Down...");
-				process.exit()
-			}
-			if (cmd[1] === "reload") {
-				msg.channel.send("DEBUG - Reloading");
-				process.reset()
-			}
-		} else {
-			msg.channel.send("DEBUG - You're not Ryan Edgewurth. Task Failed");
-		}
-    }
 	
     }
 	if (cmd[0] === clientPrefix + "bal") {
@@ -127,14 +101,6 @@ function sortObject(o) {
     }
 	
 	
-	if (typeof levels[msg.author.id] === "undefined") {
-		levels[msg.author.id] = 0;
-	} else {
-	levels[msg.author.id] = levels[msg.author.id] + 1;}
-	fs.writeFile("./configs/levels.json",JSON.stringify(levels)); }
-	catch(err) {
-		msg.reply(ErrorCmds.errorhandle(err.message, err.name, msg.content, msg.author.id));
-	}
-});
+
 
 */
