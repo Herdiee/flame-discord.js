@@ -36,7 +36,7 @@ module.exports = {
 
         let embed = new MessageEmbed()
         .setColor("#FFFFFF")
-        .setDescription(`You worked as a ${jobs[jobworked]{ and earned ${amount}`)
+        .setDescription(`You worked as a ${jobs[jobworked]} and earned ${amount}`)
         message.reply(embed) 
 
         let a = await db.add(`money_${message.guild.id}_${user.id}`, amount)
