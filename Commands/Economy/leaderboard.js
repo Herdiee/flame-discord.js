@@ -1,5 +1,5 @@
-const Discord = require('discord.js');                                            // API Wrapper
-const db = require("quick.db");                                                   // Database Engine
+const Discord = require('discord.js');                 // API Wrapper
+const db = require("quick.db");                        // Database Engine
 
 module.exports = {
     name: 'leaderboard',
@@ -7,6 +7,13 @@ module.exports = {
     cooldown: 30,
     aliases: ['lb','top'],
     run: async (client, message, args) => {
-        return;
+
+        let tosort = db.all();
+        
+        let embed = new MessageEmbed()
+        .setColor("#FFFFFF")
+        .setDescription(`**${message.guild.name}'s Leaderboard**`)
+        message.reply(embed)
+
     }
 }
