@@ -1,17 +1,18 @@
-const Discord = require('discord.js');
-const db = require("quick.db");
+const Discord = require('discord.js');                                            // API Wrapper
+const db = require("quick.db");                                                   // Database Engine
 
 module.exports = {
-      name: 'work',
-      description: 'Earn money by working',
-      cooldown: 300,
-      aliases: ['wk'],
+    name: 'work',
+    description: 'Earn money by working',
+    cooldown: 30,
+    aliases: ['wk'],
   
   run: async (client, message, args) => {
-    let author = message.author;
-    let author = await db.fetch(`money_${message.guild.id}_${user.id}`)
+    let author = message.author;                                                    // Message Author
+    let authorbal = await db.fetch(`money_${message.guild.id}_${user.id}`)          // Fetch Authors current balance
+    if (authorbal == 'null') authorbal = '0';                                       // If undefined set to 0
 
-    let jobs = [
+    let jobs = [                                                                    // Jobs Object
     'a Fast Food Restaurant',
     'an Supermarket',
     'a School',
@@ -31,15 +32,15 @@ module.exports = {
     'a Museum.',
     ];
 
-        let jobworked = Math.floor(Math.random() * jobs.length);
-        let amount = Math.floor(Math.random() * 100);
+    let jobworked = Math.floor(Math.random() * jobs.length);                        // Pick a random job
+    let amount = Math.floor(Math.random() * 100);                                   // Pick a random amount
 
-        let embed = new MessageEmbed()
-        .setColor("#FFFFFF")
-        .setDescription(`You worked as a ${jobs[jobworked]} and earned ${amount}`)
-        message.reply(embed) 
+    let embed = new MessageEmbed()                                                  // Embed Creation
+    .setColor("#FFFFFF")
+    .setDescription(`You worked as a ${jobs[jobworked]} and earned ${amount}`)
+    message.reply(embed) 
 
-        let a = await db.add(`money_${message.guild.id}_${user.id}`, amount)
+    let a = await db.add(`money_${message.guild.id}_${user.id}`, amount)            // Add money to the database
     
 }
 }
