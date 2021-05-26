@@ -1,5 +1,6 @@
 const Discord = require('discord.js');                                            // API Wrapper
 const db = require("quick.db");                                                   // Database Engine
+const { MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: 'work',
@@ -7,12 +8,13 @@ module.exports = {
     cooldown: 30,
     aliases: ['wk'],
   
-  run: async (client, message, args) => {
-    let author = message.author;                                                    // Message Author
-    let authorbal = await db.fetch(`money_${message.guild.id}_${user.id}`)          // Fetch Authors current balance
-    if (authorbal == 'null') authorbal = '0';                                       // If undefined set to 0
+  run: async (client, message, args) => {   
+    let authorid = message.author.id
 
-    let jobs = [                                                                    // Jobs Object
+    authorbal = await db.fetch(`money_${message.guild.id}_${authorid}`)
+    if (authorbal === null) authorbal = 0; 
+
+    let jobs = [                                                           
     'a Fast Food Restaurant',
     'an Supermarket',
     'a School',
@@ -40,7 +42,7 @@ module.exports = {
     .setDescription(`You worked as a ${jobs[jobworked]} and earned ${amount}`)
     message.reply(embed) 
 
-    let a = await db.add(`money_${message.guild.id}_${user.id}`, amount)            // Add money to the database
+    let a = await db.add(`money_${message.guild.id}_${authorid}`, amount)            // Add money to the database
     
 }
 }

@@ -6,6 +6,7 @@ module.exports = {
         usage: "ping",
         aliases: ['latency'],
     run: async (bot, message, args) => {
+        try {
                 const embed = new MessageEmbed()
                 .setTitle('Pong')
                 .setDescription('Test')
@@ -18,5 +19,5 @@ module.exports = {
                 message.reply("**Something went wrong!**")
                 console.log(`Something went wrong! ${message.guild.id}`)
               }
-};
+}
 }

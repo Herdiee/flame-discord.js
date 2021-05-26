@@ -1,6 +1,5 @@
 const { MessageEmbed } = require('discord.js');                             // Required to create embeds
-const db = require('quick.db')                                              // Database
-const { ownerID } = require("../../owner.json")                             // Owner ID
+const db = require('quick.db')                                              // Database                          // Owner ID
 
 module.exports = {
         name: "ban",
@@ -12,7 +11,7 @@ module.exports = {
         try {
           
             if (!message.member.hasPermission("BAN_MEMBERS") &&             // If user does not have permissions
-                !ownerID .includes(message.author.id))
+                message.author.id != client.config.OWNER_ID)
             {
                 message.channel.send("**You Dont Have The Permissions To Ban Users! - [BAN_MEMBERS]**");
                 return;
