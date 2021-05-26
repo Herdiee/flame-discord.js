@@ -1,17 +1,17 @@
-const Discord = require('discord.js');                          // Discord API Wrapper
-const Enmap = require("enmap");                                 // Data Storage Stuff
-const fs = require("fs");                                       // JS File System
-const ytdl = require('ytdl-core');                              // Youtube Downloader
+const Discord = require('discord.js');
+const Enmap = require("enmap");
+const fs = require("fs");
+const ytdl = require('ytdl-core');
 
-const client = new Discord.Client();                            // Create a discord client
-const config = require("./config.json");                        // Config File
+const client = new Discord.Client();
+const config = require("./config.json");
 
 client.config = config;
 client.commands = new Enmap();
 client.cooldowns = new Discord.Collection();
 
-["command","event"].forEach(handler => {                        // Command and Event Handler
+["command","event"].forEach(handler => {
 	require(`./Handlers/${handler}`)(client);
 });
 
-client.login(config.token);                                     // Log in using bot token
+client.login(config.token);

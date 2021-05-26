@@ -3,10 +3,10 @@ const db = require("quick.db");
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
-    name: 'leaderboard',
-    description: 'List the richest users',
-    cooldown: 30,
-    aliases: ['lb','top'],
+        name: 'leaderboard',
+        description: 'List the richest users',
+        cooldown: 30,
+        aliases: ['lb','top'],
     run: async (client, message, args) => {
 
         let money = db.all().filter(data => data.ID.startsWith(`money_`)).sort((a, b) => b.data - a.data);

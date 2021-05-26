@@ -1,5 +1,5 @@
-const { MessageEmbed } = require("discord.js");                 // Required to create embeds
-const db = require('quick.db')                                  // Database
+const { MessageEmbed } = require("discord.js");
+const db = require('quick.db')
 
 module.exports = {
         name: "kick",
@@ -12,45 +12,44 @@ module.exports = {
     
         try {
           
-            if (!message.member.hasPermission("KICK_MEMBERS")) {                    // User Perm Error
+            if (!message.member.hasPermission("KICK_MEMBERS")) {
                 message.channel.send("**You Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**")
                 return;
             }
 
-            if (!message.guild.me.hasPermission("KICK_MEMBERS")) {                  // Bot Perm Error
+            if (!message.guild.me.hasPermission("KICK_MEMBERS")) {
                 message.channel.send("**I Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**")
                 return;
             }
 
-            if (!args[0]) {                                                         // No Args Error
+            if (!args[0]) {
                 message.channel.send('**Enter A User To Kick!**')
                 return;
             }
 
-            // Get the member that is to be kicked and check that they are in the guild.
             var kickMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase());
                 
-                if (!kickMember) {                                                  // Check user is in guild
+                if (!kickMember) {
                 message.channel.send("**User Is Not In The Guild!**")
                 return;
             }
 
-            if (kickMember.id === message.member.id) {                              // Check user is not the message author
+            if (kickMember.id === message.member.id) {
                 message.channel.send("**You Cannot Kick Yourself!**")
                 return;
             }
 
-            if (!kickMember.kickable) {                                              // Check user can be kicked
+            if (!kickMember.kickable) {
                 message.channel.send("**Cannot Kick This User!**")
                 return;
             }
 
-            if (kickMember.user.bot) {                                                // Check the user is not a bot
+            if (kickMember.user.bot) {
                 message.channel.send("**Cannot Kick A Bot!**")
                 return;
             }
 
-            var reason = args.slice(1).join(" ");                                       // Get the reason for the kick 
+            var reason = args.slice(1).join(" ");
 
             try {
                 const sembed2 = new MessageEmbed()
@@ -75,26 +74,8 @@ module.exports = {
             message.channel.send(sembed2);
             }
 
-            let channel = db.fetch(`modlog_${message.guild.id}`)    // Fetch logging channel
-            if (!channel) return;
-
-            const embed = new MessageEmbed()                        // Logging embed
-                .setAuthor(`${message.guild.name} Moderation Logging`, message.guild.iconURL())
-                .setColor("#ff0000")
-                .setThumbnail(kickMember.user.displayAvatarURL({ dynamic: true }))
-                .setFooter(message.guild.name, message.guild.iconURL())
-                .addField("**Moderation**", "kick")
-                .addField("**User Kicked**", kickMember.user.username)
-                .addField("**Kicked By**", message.author.username)
-                .addField("**Reason**", `${reason || "**No Reason**"}`)
-                .addField("**Date**", message.createdAt.toLocaleString())
-                .setTimestamp();
-
-            var sChannel = message.guild.channels.cache.get(channel)        // Get the logging channel and send embed
-            if (!sChannel) return;
-            sChannel.send(embed)
-        } catch (e) {
-            return message.channel.send(`**${e.message}**`)
+        } catch (error) {
+            message.reply("Something went wrong!")
         }
     }
 }
