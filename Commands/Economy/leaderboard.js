@@ -18,10 +18,10 @@ module.exports = {
         }
 
         let embed = new MessageEmbed()
-        .setColor("#FFFFFF")
-        .setTitle(`**${message.guild.name}'s Leaderboard**`)
-        .setDescription(lb)
-        .setColor(0x00AE86)
+            .setColor("#FFFFFF")
+            .setTitle(`**${message.guild.name}'s Leaderboard**`)
+            .setDescription(lb)
+            .setColor(0x00AE86)
         message.reply(embed)
     }
 }

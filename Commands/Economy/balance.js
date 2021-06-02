@@ -18,11 +18,10 @@ module.exports = {
         if (userbalance === null) userbalance = 0;
 
         let embed = new MessageEmbed()
-        .setColor("#FFFFFF")
-        .setTitle(`Balance of ${user.tag}`)
-        .setDescription(`${user.tag} Has a balance of ${userbalance}`)
-        .setColor(0x00AE86)
-
+            .setColor("#FFFFFF")
+            .setTitle(`Balance of ${user.tag}`)
+            .setDescription(`${user.tag} Has a balance of ${userbalance}`)
+            .setColor(0x00AE86)
         message.reply(embed)
     }
 }

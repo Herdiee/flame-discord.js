@@ -11,7 +11,7 @@ module.exports = {
     cooldown: 30,
     aliases: ['wk'],
   
-  run: async (client, message, args) => {   
+    run: async (client, message, args) => {   
 
     if (abusePrevention.has(message.author.id)) {
       message.reply("You are currently unable to use this command. Please try again later")
