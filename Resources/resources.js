@@ -1,8 +1,8 @@
-const a = require
-const b = require
+const eightball = require('./Fun/eightball.js')
+const workplaces = require('./Economy/workplaces.js')
 
 module.exports = {
-    a: a,
-    b: b
+    eightball: eightball,
+    workplaces: workplaces
 
 }

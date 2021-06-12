@@ -1,7 +1,5 @@
-const Discord = require('discord.js');
-const db = require("quick.db");
 const { MessageEmbed } = require('discord.js');
-let answers = require('../../Resources/eightball.js')
+const { eightball } = require('../../Resources/resources.js')
 
 module.exports = {
         name: '8ball',
@@ -10,7 +8,7 @@ module.exports = {
         aliases: ['eightball'],
     run: async (client, message, args) => {   
 
-        let response = Math.floor(Math.random() * answers.length);
+        let response = Math.floor(Math.random() * eightball.length);
 
         let embed = new MessageEmbed()                                     
         .setColor("#FFFFFF")

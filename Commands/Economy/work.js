@@ -1,6 +1,6 @@
 const db = require("quick.db");
 const { MessageEmbed } = require('discord.js');
-let jobs = require('../../Resources/workplaces.js')
+const { workplaces } = require('../../Resources/resources.js')
 const abusePrevention = new Set();   
    
 module.exports = {
@@ -21,12 +21,12 @@ module.exports = {
             authorbal = await db.fetch(`money_${message.guild.id}_${authorid}`)
             if (authorbal === null) authorbal = 0; 
 
-            let jobworked = Math.floor(Math.random() * jobs.length);      
+            let jobworked = Math.floor(Math.random() * workplaces.length);      
             let amount = Math.floor(Math.random() * 100);        
 
             let embed = new MessageEmbed()                                     
             .setColor("#FFFFFF")
-            .setDescription(`You worked at ${jobs[jobworked]} and earned ${amount}`)
+            .setDescription(`You worked at ${workplaces[jobworked]} and earned ${amount}`)
             .setColor(0x00AE86)
             message.reply(embed) 
 
