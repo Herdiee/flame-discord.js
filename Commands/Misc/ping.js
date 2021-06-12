@@ -5,7 +5,7 @@ module.exports = {
         description: "see your ping",
         usage: "ping",
         aliases: ['latency'],
-    run: async (bot, message, args) => {
+    run: async (client, message, args) => {
         try {
                 const embed = new MessageEmbed()
                         .setTitle('Pong')

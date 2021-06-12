@@ -1,6 +1,3 @@
-const Discord = require("discord.js"); 
-const { MessageEmbed } = require('discord.js');
-
 var answers = [
     'It is certain.',
     'It is decidedly so.',

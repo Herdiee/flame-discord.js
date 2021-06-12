@@ -1,9 +1,7 @@
 const Discord = require('discord.js');
-const fs = require("fs");
-const ytdl = require('ytdl-core');
-
 const client = new Discord.Client();
 const config = require("./config.json");
+require('dotenv').config()
 
 client.config = config;
 client.commands = new Discord.Collection();
@@ -13,4 +11,4 @@ client.cooldowns = new Discord.Collection();
 	require(`./Handlers/${handler}`)(client);
 });
 
-client.login(config.token);
+client.login(process.env.DISCORD_TOKEN);

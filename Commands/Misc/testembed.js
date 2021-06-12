@@ -1,12 +1,13 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports = {
-        name: "testembed",
-        category: "Misc",
-        description: "sends a test embed",
-    run: async (bot, message, args) => {
+    name: "testembed",
+    description: "sends a test embed",
+    usage: "testembed",
+    aliases: [],
+run: async (client, message, args) => {
 
-  const exampleEmbed = new Discord.MessageEmbed()
+    const exampleEmbed = new Discord.MessageEmbed()
       .setColor('#ee5615')
       .setTitle('Some title')
       .setURL('https://discord.js.org/')
@@ -24,6 +25,6 @@ module.exports = {
       .setTimestamp()
       .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
 
-    msg.channel.send(exampleEmbed);
-  }
+    message.channel.send(exampleEmbed);
+    }
 }

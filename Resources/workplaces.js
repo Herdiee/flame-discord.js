@@ -1,7 +1,4 @@
-const Discord = require("discord.js"); 
-const { MessageEmbed } = require('discord.js');
-
-let jobs = [                                                           
+var jobs = [                                                           
     'a Fast Food Restaurant',
     'an Supermarket',
     'a School',

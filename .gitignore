@@ -1,1 +1,5 @@
-config.json
+# Node modules directory
+./node-modules
+
+# Environmental Token file
+.env
