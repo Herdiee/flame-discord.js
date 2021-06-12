@@ -1,7 +1,8 @@
 const db = require("quick.db");
 const { MessageEmbed } = require('discord.js');
 let jobs = require('../../Resources/workplaces.js')
-const abusePrevention = new Set();      
+const abusePrevention = new Set();   
+   
 module.exports = {
     name: 'work',
     description: 'Earn money by working',
