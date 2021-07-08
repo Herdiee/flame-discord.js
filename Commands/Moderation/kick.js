@@ -1,5 +1,7 @@
-const { MessageEmbed } = require("discord.js");
 const db = require('quick.db')
+
+const { MessageEmbed } = require("discord.js");
+
 
 module.exports = {
         name: "kick",
@@ -8,7 +10,7 @@ module.exports = {
         accessableby: "Administrator",
         usage: "[name | nickname | mention | ID] <reason> (optional)",
         aliases: [],
-    run: async (bot, message, args) => {
+    run: async (client, message, args) => {
     
         try {
           

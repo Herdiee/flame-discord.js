@@ -1,12 +1,14 @@
-const { MessageEmbed } = require('discord.js');
 const db = require('quick.db')
+
+const { MessageEmbed } = require('discord.js');
+
 
 module.exports = {
         name: "ban",
         aliases: ["b", "banish"],
         description: "Bans the user",
         usage: "[name | nickname | mention | ID] <reason> (optional)",
-    run: async (bot, message, args) => {
+    run: async (client, message, args) => {
       
         try {
           
@@ -48,7 +50,7 @@ module.exports = {
           
             try {
                 message.guild.members.ban(banMember)
-                let dm_ban_msg = `**Hello, You Have Been Banned From ${message.guild.name} for - ${reason || "No Reason"}**`
+                let dm_ban_msg = `**You Have Been Banned From ${message.guild.name} for - ${reason || "No Reason"}**`
                 banMember.send(dm_ban_msg)
             } catch {
                 message.guild.members.ban(banMember)

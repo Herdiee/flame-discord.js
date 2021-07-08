@@ -1,4 +1,5 @@
 const db = require("quick.db")
+
 const { MessageEmbed } = require("discord.js")
 const { PREFIX } = require("../../config")
 
@@ -9,7 +10,7 @@ module.exports = {
             example: "!prefix",
             aliases: ["prefics"],
 
-      run: async (bot, message, args) => {
+      run: async (client, message, args) => {
       let option = args[0];
 
       if(!message.member.hasPermission("MANAGE_GUILD")) {
